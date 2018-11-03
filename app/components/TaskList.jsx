@@ -3,9 +3,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function TaskList(props) {
-  const { items } = props;
+  const { items, onDone } = props;
   return (
-    <ol>{Object.keys(items).map(id => (<li key={id}>{items[id].text}</li>))}</ol>
+    <ol>
+      {Object.keys(items).map(id => (
+        <li key={id}>
+          {items[id].text}
+          <input type="checkbox" checked={items[id].isDone} onChange={onDone.bind(null, id)} />
+        </li>
+      ))}
+    </ol>
   );
 }
 
@@ -14,6 +21,7 @@ TaskList.propTypes = {
     text: PropTypes.string,
     id: PropTypes.string,
   })).isRequired,
+  onDone: PropTypes.func.isRequired,
 };
 
 export default TaskList;

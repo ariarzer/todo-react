@@ -8,10 +8,25 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      taskList: [],
+      taskList: {},
     };
 
     this.addNewTask = this.addNewTask.bind(this);
+    this.onDone = this.onDone.bind(this);
+  }
+
+
+  onDone(id) {
+    const { taskList } = this.state;
+    this.setState({
+      taskList: {
+        ...taskList,
+        [id]: {
+          ...taskList[id],
+          isDone: !taskList[id].isDone,
+        },
+      },
+    });
   }
 
   addNewTask({ id, ...payload }) {
@@ -26,7 +41,7 @@ class App extends React.Component {
     return (
       <div>
         <InputTask add={this.addNewTask} />
-        <TaskList items={items} />
+        <TaskList items={items} onDone={this.onDone} />
       </div>
     );
   }
