@@ -15,7 +15,7 @@ class InputTask extends React.Component {
     this.changeValue = this.changeValue.bind(this);
   }
 
-  addNewTask(e) {
+  addTodo(e) {
     e.preventDefault();
     const { add } = this.props;
     const { value } = this.state;
@@ -30,7 +30,7 @@ class InputTask extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.addNewTask}>
+      <form onSubmit={this.addTodo}>
         <input type="text" onChange={this.changeValue} />
         <button type="submit">Add</button>
       </form>

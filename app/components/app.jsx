@@ -3,7 +3,7 @@ import React from 'react';
 import InputTask from './InputTask.jsx';
 import TaskList from './TaskList.jsx';
 
-export default class extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -32,3 +32,5 @@ export default class extends React.Component {
     );
   }
 }
+
+export default App;
