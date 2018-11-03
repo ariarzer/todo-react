@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 import TODO from './components/TODO.jsx';
 
 ReactDOM.render(
-  <div>
-    <TODO/>
-  </div>,
+  <TODO />,
   document.getElementById('root'),
 );

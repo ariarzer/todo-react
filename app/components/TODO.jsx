@@ -3,7 +3,7 @@ import React from 'react';
 import InputTask from './InputTask.jsx';
 import TaskList from './TaskList.jsx';
 
-export default class extends React.Component{
+export default class extends React.Component {
   constructor(props) {
     super(props);
 
@@ -14,16 +14,21 @@ export default class extends React.Component{
     this.addNewTask = this.addNewTask.bind(this);
   }
 
-  addNewTask(text) {
+  addNewTask(item) {
+    const { taskList } = this.state;
     this.setState({
-      taskList: this.state.taskList.concat(text),
+      taskList: taskList.concat(item),
     });
   }
 
   render() {
-    return <div>
-      <InputTask addNewTask={this.addNewTask}/>
-      <TaskList taskList={this.state.taskList}/>
-    </div>
+    const { taskList: items } = this.state;
+
+    return (
+      <div>
+        <InputTask add={this.addNewTask} />
+        <TaskList items={items} />
+      </div>
+    );
   }
 }

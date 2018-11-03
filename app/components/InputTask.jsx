@@ -1,6 +1,7 @@
 import React from 'react';
 
 import nanoid from 'nanoid';
+import PropTypes from 'prop-types';
 
 class InputTask extends React.Component {
   constructor(props) {
@@ -14,8 +15,10 @@ class InputTask extends React.Component {
     this.changeValue = this.changeValue.bind(this);
   }
 
-  addNewTask(e) {
-    this.props.addNewTask({text: this.state.value, id: nanoid()});
+  addNewTask() {
+    const { add } = this.props;
+    const { value } = this.state;
+    add({ text: value, id: nanoid() });
   }
 
   changeValue(e) {
@@ -25,11 +28,17 @@ class InputTask extends React.Component {
   }
 
   render() {
-    return <div>
-      <input type="text" onChange={this.changeValue}/>
-      <button onClick={this.addNewTask}>Add</button>
-    </div>
+    return (
+      <form>
+        <input type="text" onChange={this.changeValue} />
+        <button onClick={this.addNewTask} type="submit">Add</button>
+      </form>
+    );
   }
 }
+
+InputTask.propTypes = {
+  add: PropTypes.func.isRequired,
+};
 
 export default InputTask;

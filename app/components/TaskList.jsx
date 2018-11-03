@@ -1,6 +1,8 @@
 import React from 'react';
 
-class TaskList extends React.Component{
+import PropTypes from 'prop-types';
+
+class TaskList extends React.Component {
   constructor(props) {
     super(props);
 
@@ -8,14 +10,22 @@ class TaskList extends React.Component{
   }
 
   generateList() {
-    return this.props.taskList.map(({text, id}) => <li key={id}>{text}</li>);
+    const { items = [] } = this.props;
+    return items.map(({ text, id }) => <li key={id}>{text}</li>);
   }
 
   render() {
-    return <div>
+    return (
       <ol>{this.generateList()}</ol>
-    </div>
+    );
   }
 }
+
+TaskList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string,
+    id: PropTypes.string,
+  })).isRequired,
+};
 
 export default TaskList;
