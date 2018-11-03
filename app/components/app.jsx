@@ -15,10 +15,9 @@ class App extends React.Component {
   }
 
   addNewTask(item) {
-    const { taskList } = this.state;
-    this.setState({
-      taskList: taskList.concat(item),
-    });
+    this.setState(prevState => ({
+      taskList: [...prevState.taskList, item],
+    }));
   }
 
   render() {
