@@ -11,7 +11,7 @@ class InputTask extends React.Component {
       value: '',
     };
 
-    this.addNewTask = this.addNewTask.bind(this);
+    this.addTodo = this.addTodo.bind(this);
     this.changeValue = this.changeValue.bind(this);
   }
 
@@ -19,7 +19,7 @@ class InputTask extends React.Component {
     e.preventDefault();
     const { add } = this.props;
     const { value } = this.state;
-    add({ text: value, id: nanoid() });
+    add({ text: value, id: nanoid(), isDone: false });
   }
 
   changeValue(e) {

@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function TaskList(props) {
-  const { items = [] } = props;
+  const { items } = props;
   return (
-    <ol>{items.map(({ text, id }) => <li key={id}>{text}</li>)}</ol>
+    <ol>{Object.keys(items).map(id => (<li key={id}>{items[id].text}</li>))}</ol>
   );
 }
 

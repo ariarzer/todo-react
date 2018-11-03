@@ -14,9 +14,9 @@ class App extends React.Component {
     this.addNewTask = this.addNewTask.bind(this);
   }
 
-  addNewTask(item) {
+  addNewTask({ id, ...payload }) {
     this.setState(prevState => ({
-      taskList: [...prevState.taskList, item],
+      taskList: { ...prevState.taskList, [id]: payload },
     }));
   }
 
