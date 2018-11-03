@@ -15,7 +15,8 @@ class InputTask extends React.Component {
     this.changeValue = this.changeValue.bind(this);
   }
 
-  addNewTask() {
+  addNewTask(e) {
+    e.preventDefault();
     const { add } = this.props;
     const { value } = this.state;
     add({ text: value, id: nanoid() });
@@ -29,9 +30,9 @@ class InputTask extends React.Component {
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.addNewTask}>
         <input type="text" onChange={this.changeValue} />
-        <button onClick={this.addNewTask} type="submit">Add</button>
+        <button type="submit">Add</button>
       </form>
     );
   }
