@@ -8,7 +8,7 @@ class TaskList extends React.Component{
   }
 
   generateList() {
-    return this.props.taskList.map(item => {return <li>{item}</li>});
+    return this.props.taskList.map(({text, id}) => <li key={id}>{text}</li>);
   }
 
   render() {

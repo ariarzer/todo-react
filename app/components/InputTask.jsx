@@ -1,5 +1,7 @@
 import React from 'react';
 
+import nanoid from 'nanoid';
+
 class InputTask extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +15,7 @@ class InputTask extends React.Component {
   }
 
   addNewTask(e) {
-    this.props.addNewTask(this.state.value);
+    this.props.addNewTask({text: this.state.value, id: nanoid()});
   }
 
   changeValue(e) {
