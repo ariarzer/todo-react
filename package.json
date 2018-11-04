@@ -40,7 +40,9 @@
       "node": true
     },
     "rules": {
-      "import/extensions": "never"
+      "import/extensions": "never",
+      "jsx-a11y/label-has-for": false,
+      "jsx-a11y/label-has-associated-control": false
     }
   },
   "eslintIgnore": [

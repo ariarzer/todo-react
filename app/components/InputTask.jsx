@@ -29,9 +29,13 @@ class InputTask extends React.Component {
   }
 
   render() {
+    const id = 'enteredNewTaskText';
+
     return (
       <form onSubmit={this.addTodo}>
-        <input type="text" onChange={this.changeValue} />
+        <label htmlFor={id}>Entered new task text:</label>
+        <input type="text" id={id} onChange={this.changeValue} />
+
         <button type="submit">Add</button>
       </form>
     );

@@ -8,8 +8,8 @@ function TaskList(props) {
     <ol>
       {Object.keys(items).map(id => (
         <li key={id}>
-          {items[id].text}
-          <input type="checkbox" checked={items[id].isDone} onChange={onDone.bind(null, id)} />
+          <label htmlFor={id}>{items[id].text}</label>
+          <input type="checkbox" id={id} checked={items[id].isDone} onChange={onDone.bind(null, id)} />
         </li>
       ))}
     </ol>
